@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "17b50946-32ec-4416-8011-fe589b405013",
+		"name": "SIGO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Normas",
+			"item": [
+				{
+					"name": "listar normas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTgxODExOTMsImV4cCI6MTYxODE4NDc5M30.jqsDACmlBhsWvh21PZ3tFiwuC4PYRq14WsqYt037xFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sigo-308502.rj.r.appspot.com/api/v1/norms",
+							"protocol": "https",
+							"host": [
+								"sigo-308502",
+								"rj",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"norms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adicionar norma",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"ABNT NBR 12984:2009\",\n    \"title\": \"Nãotecido - Determinação da massa por unidade de área\",\n    \"status\": \"Vigente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/norms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"norms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recuperar dados da norma",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTgwMjE5MzcsImV4cCI6MTYxODAyNTUzN30.05nvFKErXk150AjGt0M8NoIxdEAP7jc7bI7c64QADPI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sigo-308502.rj.r.appspot.com/api/v1/norms/1",
+							"protocol": "https",
+							"host": [
+								"sigo-308502",
+								"rj",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"norms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterar norma",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"ABNT NBR 12984:2009\",\n    \"title\": \"Nãotecido - Determinação da massa por unidade de área\",\n    \"status\": \"Vigente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/norms/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"norms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar uma norma",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/norms/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"norms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gestão",
+			"item": [
+				{
+					"name": "enviar um status de produção",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ApiKey sigo123456",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"Parado\",\n    \"description\": \"Falha na produção\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sigo-308502.rj.r.appspot.com/api/v1/gestao/status-report",
+							"protocol": "https",
+							"host": [
+								"sigo-308502",
+								"rj",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gestao",
+								"status-report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dashboard",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTgxODExOTMsImV4cCI6MTYxODE4NDc5M30.jqsDACmlBhsWvh21PZ3tFiwuC4PYRq14WsqYt037xFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sigo-308502.rj.r.appspot.com/api/v1/gestao/dashboard",
+							"protocol": "https",
+							"host": [
+								"sigo-308502",
+								"rj",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gestao",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sigo-308502.rj.r.appspot.com/api/v1/login",
+					"protocol": "https",
+					"host": [
+						"sigo-308502",
+						"rj",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
